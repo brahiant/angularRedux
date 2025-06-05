@@ -20,18 +20,17 @@ export class CounterComponent {
     }
 
     increment() {
-        this.counter++;
-        this.store.dispatch(increment());
+        this.store.dispatch(increment({value: 1}));
         console.log('Increment');
     }
 
     decrement() {
-        this.store.dispatch(decrement());
+        this.store.dispatch(decrement({value: 1}));
         console.log('Decrement');
     }
 
     reset() {
-        this.store.dispatch(reset());
+        this.store.dispatch(reset({value: 0}));
         console.log('Reset');
     }
 

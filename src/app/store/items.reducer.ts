@@ -5,7 +5,7 @@ import { increment } from "./items.action";
 export const initialState =0;
 export const counterReducer = createReducer(
     initialState,
-    on(increment, (state) => state + 1),
-    on(decrement, (state) => state - 1),
-    on(reset, (state) => 0)
+    on(increment, (state, payload) => state + payload.value),
+    on(decrement, (state, payload) => state - payload.value),
+    on(reset, (state, payload) => payload.value)
 )

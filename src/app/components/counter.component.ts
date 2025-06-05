@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { decrement, increment, reset } from '../store/items.action';
 
@@ -12,8 +12,10 @@ export class CounterComponent {
 
     title: string = 'Counter';
     counter: number = 0;
+    
+    private store = inject(Store<{counter: number}>);
 
-    constructor(private store: Store<{counter: number}>) {
+    constructor() {
         this.store.select('counter').subscribe((counter) => {
             this.counter = counter;
         });
